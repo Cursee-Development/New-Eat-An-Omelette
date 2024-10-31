@@ -1,4 +1,4 @@
-package com.cursee.examplemod.platform.services;
+package com.cursee.eat_an_omelette.platform.services;
 
 public interface IPlatformHelper {
 

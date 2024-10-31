@@ -1,7 +1,7 @@
-package com.cursee.examplemod.platform;
+package com.cursee.eat_an_omelette.platform;
 
-import com.cursee.examplemod.Constants;
-import com.cursee.examplemod.platform.services.IPlatformHelper;
+import com.cursee.eat_an_omelette.Constants;
+import com.cursee.eat_an_omelette.platform.services.IPlatformHelper;
 
 import java.util.ServiceLoader;
 
