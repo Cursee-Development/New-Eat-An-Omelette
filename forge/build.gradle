@@ -81,6 +81,9 @@ dependencies {
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
 
     implementation fg.deobf("curse.maven:monolib-968432:5838457")
+
+    // Golden Foods
+    implementation fg.deobf("curse.maven:golden-foods-873866:5860674")
 }
 
 tasks.withType(JavaCompile).configureEach {

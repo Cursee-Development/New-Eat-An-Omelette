@@ -19,6 +19,9 @@ dependencies {
     implementation project(":common")
 
     modImplementation "curse.maven:monolib-968432:5838445"
+
+    // Golden Foods
+    modImplementation "curse.maven:golden-foods-873866:5860674"
 }
 
 loom {
