@@ -74,6 +74,9 @@ dependencies {
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 
     implementation "curse.maven:monolib-968432:5838461"
+
+    // Golden Foods
+    implementation "curse.maven:golden-foods-873866:5860708"
 }
 
 tasks.named('compileJava', JavaCompile).configure {

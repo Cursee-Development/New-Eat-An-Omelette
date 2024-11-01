@@ -37,4 +37,7 @@ dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
 
     implementation "curse.maven:monolib-968432:5838463"
+
+    // Golden Foods
+    implementation "curse.maven:golden-foods-873866:5860711"
 }
