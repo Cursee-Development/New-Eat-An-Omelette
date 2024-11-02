@@ -6,5 +6,7 @@
   "ingredient": {
     "item": "eat_an_omelette:spanish_omelette_mix"
   },
-  "id": "eat_an_omelette:spanish_potato_omelette"
+  "result": {
+    "id": "eat_an_omelette:spanish_potato_omelette"
+  }
 }

@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:smelting",
-  "cookingtime": 200,
+  "type": "minecraft:campfire_cooking",
+  "cookingtime": 400,
   "experience": 0.35,
   "group": "omelette",
   "ingredient": {
