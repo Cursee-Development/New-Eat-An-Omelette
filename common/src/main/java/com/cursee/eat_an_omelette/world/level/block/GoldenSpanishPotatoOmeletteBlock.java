@@ -46,25 +46,21 @@ public class GoldenSpanishPotatoOmeletteBlock extends CakeBlock {
 
     // copied from CakeBlock, adjusted eat value and added effects
     protected static InteractionResult eat(LevelAccessor level, BlockPos pos, BlockState state, Player player) {
-        if (!player.canEat(false)) {
-            return InteractionResult.PASS;
+        player.awardStat(Stats.EAT_CAKE_SLICE);
+
+        player.getFoodData().eat(4, 1.2F);
+        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 2400, 1));
+
+        int i = (Integer)state.getValue(BITES);
+        level.gameEvent(player, GameEvent.EAT, pos);
+        if (i < 6) {
+            level.setBlock(pos, (BlockState)state.setValue(BITES, i + 1), 3);
         } else {
-            player.awardStat(Stats.EAT_CAKE_SLICE);
-
-            player.getFoodData().eat(4, 1.2F);
-            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1));
-            player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 2400, 1));
-
-            int i = (Integer)state.getValue(BITES);
-            level.gameEvent(player, GameEvent.EAT, pos);
-            if (i < 6) {
-                level.setBlock(pos, (BlockState)state.setValue(BITES, i + 1), 3);
-            } else {
-                level.removeBlock(pos, false);
-                level.gameEvent(player, GameEvent.BLOCK_DESTROY, pos);
-            }
-
-            return InteractionResult.SUCCESS;
+            level.removeBlock(pos, false);
+            level.gameEvent(player, GameEvent.BLOCK_DESTROY, pos);
         }
+
+        return InteractionResult.SUCCESS;
     }
 }
