@@ -45,23 +45,19 @@ public class GoldenSpanishPotatoOmeletteBlock extends CakeBlock {
     }
 
     protected static InteractionResult eat(LevelAccessor $$0, BlockPos $$1, BlockState $$2, Player $$3) {
-        if (!$$3.canEat(false)) {
-            return InteractionResult.PASS;
+        $$3.awardStat(Stats.EAT_CAKE_SLICE);
+        $$3.getFoodData().eat(4, 1.2F);
+        $$3.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1));
+        $$3.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 2400, 1));
+        int $$4 = (Integer)$$2.getValue(BITES);
+        $$0.gameEvent($$3, GameEvent.EAT, $$1);
+        if ($$4 < 6) {
+            $$0.setBlock($$1, (BlockState)$$2.setValue(BITES, $$4 + 1), 3);
         } else {
-            $$3.awardStat(Stats.EAT_CAKE_SLICE);
-            $$3.getFoodData().eat(4, 1.2F);
-            $$3.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 1));
-            $$3.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 2400, 1));
-            int $$4 = (Integer)$$2.getValue(BITES);
-            $$0.gameEvent($$3, GameEvent.EAT, $$1);
-            if ($$4 < 6) {
-                $$0.setBlock($$1, (BlockState)$$2.setValue(BITES, $$4 + 1), 3);
-            } else {
-                $$0.removeBlock($$1, false);
-                $$0.gameEvent($$3, GameEvent.BLOCK_DESTROY, $$1);
-            }
-
-            return InteractionResult.SUCCESS;
+            $$0.removeBlock($$1, false);
+            $$0.gameEvent($$3, GameEvent.BLOCK_DESTROY, $$1);
         }
+
+        return InteractionResult.SUCCESS;
     }
 }
